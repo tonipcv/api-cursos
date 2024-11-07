@@ -220,6 +220,8 @@ app.delete('/lessons/:id', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const HOST = '0.0.0.0';
+
+app.listen(PORT, HOST, () => {
   console.log(`Server is running on port ${PORT}`);
 });

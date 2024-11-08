@@ -12,6 +12,7 @@ model Course {
   title       String
   description String?
   thumbnailUrl String?
+  coverUrl    String?
   modules     Module[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
@@ -22,6 +23,8 @@ model Module {
   courseId    Int
   title       String
   description String?
+  thumbnailUrl String?
+  coverUrl    String?
   order       Int
   lessons     Lesson[]
   course      Course    @relation(fields: [courseId], references: [id], onDelete: Cascade)
@@ -35,6 +38,8 @@ model Lesson {
   title       String
   content     String?
   videoUrl    String?
+  thumbnailUrl String?
+  materialUrl String?
   order       Int
   module      Module    @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   createdAt   DateTime  @default(now())
